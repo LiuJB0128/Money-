@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
 import styles from './Welcome.module.scss'
-import logo from '../assets/icons/jizhang.svg'
+import logo from '../assets/icons/money.svg'
 
 export const Welcome = defineComponent({
   setup: (props, context) => {
@@ -9,10 +9,9 @@ export const Welcome = defineComponent({
       <div class={styles.wrapper}>
         <header>
           <img src={ logo }/>
-          <h1>钱迹</h1>
+          <h1>Money+ 记账</h1>
         </header>
         <main><RouterView/></main>
-        <footer></footer>
       </div>
     )
   }
