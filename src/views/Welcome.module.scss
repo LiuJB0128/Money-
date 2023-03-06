@@ -1,8 +1,9 @@
 .wrapper {
-  height: 100vh;
+  height: calc(100vh - var(--welcome-bottom-nav-height));
   display: grid;
   grid-template-rows: 20% auto;
-  background-image: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+  background-image: linear-gradient(16deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%);
+  margin-bottom: var(--welcome-bottom-nav-height);
   > header {
     display: grid;
     justify-content: center;
