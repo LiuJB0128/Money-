@@ -9,7 +9,7 @@ export const App = defineComponent({
       <header>导航
         <ul>
           <li>
-            <router-link to="/">Foo</router-link>
+            <router-link to="/welcome/1">Welcome</router-link>
           </li>
           <li>
             <router-link to="/about">Bar</router-link>
