@@ -1,11 +1,11 @@
 import { RouterLink } from 'vue-router';
-import data from '../../assets/icons/data.svg'
 import { WelcomeLayout } from './WelcomeLayout';
+import SvgIcon from '../SvgIcon/index.vue'
 
 export const Second = () => (
   <WelcomeLayout>
     {{
-      icon: () => <img src={ data }/>,
+      icon: () => <SvgIcon name="data"></SvgIcon>,
       title: () => <h2>记录收支<br/>随时掌握消费情况</h2>,
       buttons: () => <>
         <div/>

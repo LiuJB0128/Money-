@@ -1,11 +1,11 @@
 import { RouterLink } from 'vue-router';
-import email from '../../assets/icons/email.svg'
 import { WelcomeLayout } from './WelcomeLayout';
+import SvgIcon from '../SvgIcon/index.vue'
 
 export const Third = () => (
   <WelcomeLayout>
     {{
-      icon: () => <img src={ email }/>,
+      icon: () => <SvgIcon name="email"></SvgIcon>,
       title: () => <h2>记账提醒<br/>让记账成为习惯</h2>,
       buttons: () => <>
         <div/>

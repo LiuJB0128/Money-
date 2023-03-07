@@ -1,11 +1,11 @@
 import { RouterLink } from 'vue-router';
-import phone from '../../assets/icons/phone.svg'
 import { WelcomeLayout } from './WelcomeLayout';
+import SvgIcon from '../SvgIcon/index.vue'
 
 export const First = () => (
   <WelcomeLayout>
     {{
-      icon: () => <img src={ phone }/>,
+      icon: () => <SvgIcon name="phone"></SvgIcon>,
       title: () => <h2>快速记账，3秒搞定</h2>,
       buttons: () => <>
         <div/>

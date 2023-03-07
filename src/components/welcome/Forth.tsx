@@ -1,11 +1,11 @@
 import { RouterLink } from 'vue-router';
-import storage from '../../assets/icons/storage.svg'
 import { WelcomeLayout } from './WelcomeLayout';
+import SvgIcon from '../SvgIcon/index.vue'
 
 export const Forth = () => (
   <WelcomeLayout>
     {{
-      icon: () => <img src={ storage }/>,
+      icon: () => <SvgIcon name="storage"></SvgIcon>,
       title: () => <h2>云备份<br/>再也不怕数据丢失</h2>,
       buttons: () => <>
         <div/>
