@@ -35,6 +35,8 @@
 .slide_enter_from {
   position: absolute;
   right: -100%;
+  width: 100%;
+  height: calc(calc(100% - 64px) * 0.8);
 }
 
 .slide_leave_to {
@@ -47,4 +49,6 @@
 .slide_leave_from {
   position: absolute;
   left: 0;
+  width: 100%;
+  height: calc(calc(100% - 64px) * 0.8);
 }

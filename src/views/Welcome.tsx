@@ -13,7 +13,7 @@ export const Welcome = defineComponent({
         </header>
         <main>
           <RouterView>
-            {({ Component: X }: { Component: VNode}) =>
+            {({ Component: Content }: { Component: VNode }) =>
               <Transition
                 enterActiveClass={styles.slide_enter_active}
                 enterFromClass={styles.slide_enter_from}
@@ -21,7 +21,7 @@ export const Welcome = defineComponent({
                 leaveActiveClass={styles.slide_leave_active}
                 leaveToClass={styles.slide_leave_to}
                 leaveFromClass={styles.slide_leave_from}
-              >{X}</Transition>}
+              >{ Content }</Transition>}
           </RouterView>
         </main>
       </div>
