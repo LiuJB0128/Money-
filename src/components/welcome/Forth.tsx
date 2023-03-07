@@ -9,7 +9,7 @@ export const Forth = () => (
       title: () => <h2>云备份<br/>再也不怕数据丢失</h2>,
       buttons: () => <>
         <div/>
-        <RouterLink to={'/'}>开始记账</RouterLink>
+        <RouterLink to={'/items'}>开始记账</RouterLink>
         <div/>
       </>
     }}
