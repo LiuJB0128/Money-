@@ -1,4 +1,5 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
+import { Tabs, Tab } from '../../shared/Tabs';
 import styles from './ItemCreate.module.scss';
 export const ItemCreate = defineComponent({
   props: {
@@ -7,8 +8,18 @@ export const ItemCreate = defineComponent({
     }
   },
   setup: (props, context) => {
+    const refKind = ref('支出')
     return () => (
-      <div class={styles.wrapper}>ItemCreate</div>
+      <div>
+        <Tabs v-model:selected={ refKind.value }>
+          <Tab name="支出">
+            icon 列表
+          </Tab>
+          <Tab name="收入">
+            icon 列表 2
+          </Tab>
+        </Tabs>
+      </div>
     )
   }
 })

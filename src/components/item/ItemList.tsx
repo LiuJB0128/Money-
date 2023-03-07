@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import styles from './ItemList.module.scss';
 export const ItemList = defineComponent({
   props: {
@@ -7,8 +7,6 @@ export const ItemList = defineComponent({
     }
   },
   setup: (props, context) => {
-    return () => (
-      <div class={styles.wrapper}>ItemList</div>
-    )
+    
   }
 })

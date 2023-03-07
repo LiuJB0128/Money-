@@ -23,7 +23,7 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   { path: '/items',
     component: ItemPage,
     children: [
-      { path: '', component: ItemList },
+      { path: '', component: ItemCreate },
       { path: 'create', component: ItemCreate}
     ]
   }
