@@ -13,23 +13,25 @@ export const InputPad = defineComponent({
   },
   setup: (props, context) => {
     const buttons = [
-      { text: '1', onClick: () => {}},
-      { text: '2', onClick: () => {}},
-      { text: '3', onClick: () => {}},
-      { text: '4', onClick: () => {}},
-      { text: '5', onClick: () => {}},
-      { text: '6', onClick: () => {}},
-      { text: '7', onClick: () => {}},
-      { text: '8', onClick: () => {}},
-      { text: '9', onClick: () => {}},
-      { text: '0', onClick: () => {}},
-      { text: '.', onClick: () => {}},
-      { text: '清空', onClick: () => {}},
+      { text: '1', onClick: () => { appendText(1) }},
+      { text: '2', onClick: () => { appendText(2) }},
+      { text: '3', onClick: () => { appendText(3) }},
+      { text: '4', onClick: () => { appendText(4) }},
+      { text: '5', onClick: () => { appendText(5) }},
+      { text: '6', onClick: () => { appendText(6) }},
+      { text: '7', onClick: () => { appendText(7) }},
+      { text: '8', onClick: () => { appendText(8) }},
+      { text: '9', onClick: () => { appendText(9) }},
+      { text: '0', onClick: () => { appendText(0) }},
+      { text: '.', onClick: () => { appendText('.') }},
+      { text: '清空', onClick: () => { refNumber.value = ''}},
       { text: '提交', onClick: () => {}}
     ]
     const refDatePickerVisible = ref(false)
     const now = new Date()
     const refDate = ref(now)
+    const refNumber = ref('')
+    const appendText = (n: number | string) => refNumber.value += n.toString()
     const setDate = (date: Date) => { refDate.value = date; hideDatePicker() }
     const hideDatePicker = () => refDatePickerVisible.value = false
     const showDatePicker = () => refDatePickerVisible.value = true
@@ -45,9 +47,9 @@ export const InputPad = defineComponent({
             </Popup>
           </span>
         </span>
-        <span class={ styles.number }>200</span>
+        <span class={ styles.number }>{ refNumber.value }</span>
       </div>
-      <div>
+      <div class={styles.buttons}>
         { buttons.map(button => <button onClick={ button.onClick }>
           { button.text }
         </button>) }
