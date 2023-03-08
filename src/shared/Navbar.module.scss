@@ -1,0 +1,22 @@
+.navbar {
+  background: var(--navbar-bg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.title_wrapper {
+  margin-left: 16px;
+  font-size: var(--navbar-title-font-size);
+  font-weight: bolder;
+}
+
+.icon_wrapper {
+  > svg {
+    display: flex;
+    align-items: center;
+    width: 36px;
+    height: 24px;
+  }
+}

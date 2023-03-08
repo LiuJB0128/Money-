@@ -1,8 +1,17 @@
 .tabs {
+  display: grid;
+  justify-items: center;
   &_nav {
+    border: 3px solid #1d1d3c;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     > li {
+      width: 100%;
+      text-align: center;
       &.selected {
-        background: red;
+        background: #ffc952;
       }
     }
  }

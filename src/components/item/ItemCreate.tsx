@@ -1,6 +1,9 @@
 import { defineComponent, PropType, ref } from 'vue';
+import { Navbar } from '../../shared/Navbar';
 import { Tabs, Tab } from '../../shared/Tabs';
 import styles from './ItemCreate.module.scss';
+import SvgIcon from '../SvgIcon/index.vue'
+
 export const ItemCreate = defineComponent({
   props: {
     name: {
@@ -11,7 +14,13 @@ export const ItemCreate = defineComponent({
     const refKind = ref('支出')
     return () => (
       <div>
-        <Tabs v-model:selected={ refKind.value }>
+        <Navbar>
+          {{
+            icon: () => <SvgIcon name="left"></SvgIcon>,
+            default: () => '记一笔'
+          }}
+        </Navbar>
+        <Tabs v-model:selected={ refKind.value } class={styles.wrapper}>
           <Tab name="支出">
             icon 列表
           </Tab>
