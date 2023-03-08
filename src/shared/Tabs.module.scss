@@ -2,16 +2,20 @@
   display: grid;
   justify-items: center;
   &_nav {
-    border: 3px solid #1d1d3c;
-    width: 100px;
+    border: 2px solid var(--tabs-border);
+    border-radius: 3px;
+    width: 60vw;
+    height: 4.2vh;
     display: flex;
     justify-content: center;
+    line-height: 4.2vh;
+    font-weight: 700;
     flex-direction: row;
     > li {
       width: 100%;
       text-align: center;
       &.selected {
-        background: #ffc952;
+        background: var(--tab-selected-bg);
       }
     }
  }

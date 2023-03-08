@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 import styles from './Navbar.module.scss'
 
 export const Navbar = defineComponent({

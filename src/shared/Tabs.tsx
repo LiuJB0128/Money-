@@ -8,16 +8,16 @@ export const Tabs = defineComponent({
   },
   setup: (props, context) => {
     return () => {
-      const array = context.slots.default?.()
-      if (!array) return null
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].type !== Tab) {
+      const tabs = context.slots.default?.()
+      if (!tabs) return null
+      for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].type !== Tab) {
           throw new Error('<Tabs> only accepts <Tab> as children')
         }
       }
       return <div class={styles.tabs}>
         <ol class={styles.tabs_nav}>
-          {array.map(item => 
+          {tabs.map(item => 
             <li class={item.props?.name === props.selected ? styles.selected : ''}
                 onClick={()=> context.emit('update:selected', item.props?.name)}>
               {item.props?.name}
@@ -25,7 +25,7 @@ export const Tabs = defineComponent({
           )}
         </ol>
         <div>
-          {array.find(item => item.props?.name === props.selected)}
+          {tabs.find(item => item.props?.name === props.selected)}
         </div>
       </div>
     }

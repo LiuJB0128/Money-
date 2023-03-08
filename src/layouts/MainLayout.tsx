@@ -1,13 +1,18 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
+import { Navbar } from '../shared/Navbar';
 export const MainLayout = defineComponent({
-  props: {
-    name: {
-      type: String as PropType<string>
-    }
-  },
   setup: (props, context) => {
-    return () => (
-      <div>MainLayout</div>
+    const { slots } = context
+    return () => (
+      <div>
+        <Navbar>
+          {{
+            default: () => slots.title?.(),
+            icon: () => slots.icon?.() 
+          }}
+        </Navbar>
+        { slots.default?.() }
+      </div>
     )
   }
 })
