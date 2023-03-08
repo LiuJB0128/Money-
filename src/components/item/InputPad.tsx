@@ -24,14 +24,39 @@ export const InputPad = defineComponent({
       { text: '9', onClick: () => { appendText(9) }},
       { text: '0', onClick: () => { appendText(0) }},
       { text: '.', onClick: () => { appendText('.') }},
-      { text: '清空', onClick: () => { refNumber.value = ''}},
+      { text: '清空', onClick: () => { refNumber.value = '0'}},
       { text: '提交', onClick: () => {}}
     ]
     const refDatePickerVisible = ref(false)
     const now = new Date()
     const refDate = ref(now)
-    const refNumber = ref('')
-    const appendText = (n: number | string) => refNumber.value += n.toString()
+    const refNumber = ref('0')
+    const appendText = (n: number | string) => {
+      const nString = n.toString()
+      const dotIndex = refNumber.value.indexOf('.')
+      if (refNumber.value.length >= 12) {
+        return
+      }
+      if (dotIndex >= 0 && refNumber.value.length - dotIndex > 3) {
+        return
+      }
+      if (nString === '.') {
+        if (dotIndex >= 0) { // 已经有小数点了
+          return
+        }
+      } else if (nString === '0') {
+        if (dotIndex === -1) { // 没有小数点
+          if (refNumber.value === '0') { // 没小数点，但是有0
+            return
+          }
+        }
+      } else {
+        if (refNumber.value === '0') {
+          refNumber.value = ''
+        }
+      }
+      refNumber.value += n.toString()
+    }
     const setDate = (date: Date) => { refDate.value = date; hideDatePicker() }
     const hideDatePicker = () => refDatePickerVisible.value = false
     const showDatePicker = () => refDatePickerVisible.value = true
