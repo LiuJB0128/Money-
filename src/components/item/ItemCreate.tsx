@@ -1,9 +1,9 @@
 import { defineComponent, PropType, ref } from 'vue';
-import { Navbar } from '../../shared/Navbar';
 import { Tabs, Tab } from '../../shared/Tabs';
 import styles from './ItemCreate.module.scss';
 import SvgIcon from '../SvgIcon/index.vue'
 import { MainLayout } from '../../layouts/MainLayout';
+import { InputPad } from './InputPad';
 
 export const ItemCreate = defineComponent({
   props: {
@@ -28,6 +28,9 @@ export const ItemCreate = defineComponent({
                   icon 列表 2
                 </Tab>
               </Tabs>
+              <div class={styles.inputPad_wrapper}>
+                <InputPad/>
+              </div>
             </>
           }}
         </MainLayout>
