@@ -1,6 +1,6 @@
 import { RouterLink } from 'vue-router';
 import { WelcomeLayout } from './WelcomeLayout';
-import SvgIcon from '../SvgIcon/index.vue'
+import SvgIcon from '../svgIcon/index.vue'
 
 export const Forth = () => (
   <WelcomeLayout>

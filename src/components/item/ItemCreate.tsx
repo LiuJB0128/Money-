@@ -1,7 +1,7 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { Tabs, Tab } from '../../shared/Tabs';
 import styles from './ItemCreate.module.scss';
-import SvgIcon from '../SvgIcon/index.vue'
+import SvgIcon from '../svgIcon/index.vue'
 import { MainLayout } from '../../layouts/MainLayout';
 import { InputPad } from './InputPad';
 

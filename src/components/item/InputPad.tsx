@@ -1,6 +1,6 @@
 import { defineComponent, PropType, ref } from 'vue';
 import styles from './InputPad.module.scss';
-import SvgIcon from '../SvgIcon/index.vue';
+import SvgIcon from '../svgIcon/index.vue';
 import { DatetimePicker, Popup } from 'vant';
 import 'vant/es/datetime-picker/style';
 import 'vant/es/popup/style';

@@ -1,7 +1,7 @@
 import { defineComponent, Transition, VNode } from 'vue';
 import { RouterView } from 'vue-router';
 import styles from './Welcome.module.scss'
-import SvgIcon from '../components/SvgIcon/index.vue'
+import SvgIcon from '../components/svgIcon/index.vue'
 
 export const Welcome = defineComponent({
   setup: (props, context) => {
