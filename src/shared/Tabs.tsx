@@ -16,14 +16,16 @@ export const Tabs = defineComponent({
         }
       }
       return <div class={styles.tabs}>
-        <ol class={styles.tabs_nav}>
-          {tabs.map(item => 
-            <li class={item.props?.name === props.selected ? styles.selected : ''}
-                onClick={()=> context.emit('update:selected', item.props?.name)}>
-              {item.props?.name}
-            </li>  
-          )}
-        </ol>
+        <div class={styles.tabs_wrapper}>
+          <ol class={styles.tabs_nav}>
+            {tabs.map(item => 
+              <li class={item.props?.name === props.selected ? styles.selected : ''}
+                  onClick={()=> context.emit('update:selected', item.props?.name)}>
+                {item.props?.name}
+              </li>  
+            )}
+          </ol>
+        </div>
         <div>
           {tabs.find(item => item.props?.name === props.selected)}
         </div>

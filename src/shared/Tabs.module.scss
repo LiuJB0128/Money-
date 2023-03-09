@@ -1,9 +1,19 @@
 .tabs {
-  display: grid;
-  justify-items: center;
+  position: relative;
+  &_wrapper {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background: white;
+    box-shadow: 0 3px 10px var(--tabs-shadow);;
+    padding: 5px 0 10px;
+    display: flex;
+    justify-content: center;
+  }
   &_nav {
     border: 2px solid var(--tabs-border);
     border-radius: 3px;
+    max-width: 600px;
     width: 60vw;
     height: 4.2vh;
     display: flex;
@@ -11,6 +21,7 @@
     line-height: 4.2vh;
     font-weight: 700;
     flex-direction: row;
+    
     > li {
       width: 100%;
       text-align: center;
