@@ -2,7 +2,7 @@ import { Button } from 'vant';
 import { defineComponent, reactive } from 'vue';
 import { MainLayout } from '../../layouts/MainLayout';
 import SvgIcon from '../svgIcon/index.vue';
-import styles from './TagCreate.module.scss'
+import styles from './Tag.module.scss'
 import 'vant/es/button/style'
 import { EmojiSelect } from '../../shared/EmojiSelect';
 import { Rules, validate } from '../../shared/validate';
