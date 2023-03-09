@@ -43,3 +43,12 @@
     font-size: 12px;
   }
 }
+.actions {
+  padding: 0 16px 16px;
+  .removeTags {
+    width: 100%;
+    border-radius: var(--button-radius);
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
