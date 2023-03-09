@@ -3,7 +3,7 @@
   padding: 16px 0;
 }
 .form {
-  padding: 16px;
+  padding:  0 16px 16px;
 }
 .formRow {
   margin-top: 8px;
@@ -28,9 +28,9 @@
     padding-left: 16px;
     padding-right: 16px;
     box-shadow: inset 0 0 3px var(--input-shadow);
-    &.error {
-      border-color: var(--error-color);
-    }
+    //&.error {
+    //  border-color: var(--error-color);
+    //}
   }
   
   &_value {
