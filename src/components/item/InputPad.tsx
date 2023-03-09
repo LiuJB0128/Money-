@@ -4,7 +4,7 @@ import SvgIcon from '../svgIcon/index.vue';
 import { DatetimePicker, Popup } from 'vant';
 import 'vant/es/datetime-picker/style';
 import 'vant/es/popup/style';
-import { time } from '../../shared/time';
+import { Time } from '../../shared/time';
 export const InputPad = defineComponent({
   props: {
     name: {
@@ -64,7 +64,7 @@ export const InputPad = defineComponent({
         <span class={ styles.date }>
           <SvgIcon name="date"></SvgIcon>
           <span>
-             <span onClick={showDatePicker}>{time(refDate.value).format()}</span>
+             <span onClick={showDatePicker}>{new Time(refDate.value).format()}</span>
             <Popup position='bottom' v-model:show={refDatePickerVisible.value}>
             <DatetimePicker value={refDate.value} type="date" title="选择日期"
                 onConfirm={setDate} onCancel={hideDatePicker}
