@@ -9,6 +9,7 @@ import { Second } from "../components/welcome/Second";
 import { Third } from "../components/welcome/Third";
 import { ItemPage } from "../views/ItemPage";
 import { SignInPage } from "../views/SignInPage";
+import { StatisticsPage } from "../views/StatisticsPage";
 import { TagPage } from "../views/TagPage";
 import { Welcome } from "../views/Welcome";
 
@@ -40,5 +41,8 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   },
   {
     path: '/sign_in', component: SignInPage
+  },
+  {
+    path: '/statistics', component: StatisticsPage
   }
 ]

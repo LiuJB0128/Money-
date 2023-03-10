@@ -4,6 +4,9 @@
 .formRow {
   margin-top: 8px;
 }
+.formLabel {
+  display: block;
+}
 .formItem {
   min-height: var(--input-min-height);
   max-width: 100%;
@@ -27,6 +30,15 @@
     //&.error {
     //  border-color: var(--error-color);
     //}
+  }
+  &.select{
+    width: 100%;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-radius);
+    padding: 0 8px;
+    &:focus-visible {
+      outline: none;
+    }
   }
   &.validationCodeInput {
     flex-grow: 0;
