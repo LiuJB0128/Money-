@@ -1,13 +1,14 @@
-import { defineComponent, reactive, ref, watchEffect } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
 import { MainLayout } from '../../layouts/MainLayout';
 import { Time } from '../../shared/time';
 import styles from './ItemList.module.scss';
 import SvgIcon from '../svgIcon/index.vue'
 import { Tab, Tabs } from '../../shared/Tabs';
 import { ItemSummary } from './ItemSummary';
-import { Button, Popup, ConfigProvider } from 'vant';
+import { Button, Popup } from 'vant';
 import { Form, FormItem } from '../../shared/Form';
 import 'vant/es/button/style';
+import 'vant/es/popup/style';
 
 export const ItemList = defineComponent({
   setup: (props, context) => {
@@ -35,19 +36,18 @@ export const ItemList = defineComponent({
         end: time.lastDayOfYear()
       }
     ]
-    watchEffect(() => {
-      if (refSelected.value === '自订') {
+    const onSelect = (value: string) => {
+      if (value === '自订') {
         refPopupVisible.value = true
-        // 重新选定不会弹出
       }
-    })
+    }
     return () => (
       <MainLayout>{
         {
           title: () => '首页',
-          icon: () => <SvgIcon name="left" />,
+          icon: () => <SvgIcon name="home" />,
           default: () => <>
-            <Tabs v-model:selected={refSelected.value}>
+            <Tabs v-model:selected={refSelected.value} onUpdate:selected={onSelect}>
               <Tab name="本月">
                 <ItemSummary
                   startDate={timeList[0].start.format()}
@@ -80,7 +80,7 @@ export const ItemList = defineComponent({
                     <FormItem label='结束时间' v-model={customTime.end} type='date' />
                     <FormItem>
                       <div class={styles.actions}>
-                        <Button class={styles.default}>取消</Button>
+                        <Button class={styles.default} type="warning" onClick={() => refPopupVisible.value = false}>取消</Button>
                         <Button class={styles.submit} type="primary" onClick={onSubmitCustomTime}>确定</Button>
                       </div>
                     </FormItem>
