@@ -28,6 +28,14 @@
     //  border-color: var(--error-color);
     //}
   }
+  &.validationCodeInput {
+    flex-grow: 0;
+    width: 9em;
+  }
+  &.validationCodeButton {
+    margin-left: 16px;
+    border: none;
+  }
   
   &_value {
     display: flex;
