@@ -67,7 +67,8 @@ export const TimeTabsLayout = defineComponent({
           title: () => slots.title?.(),
           icon: () => slots.icon?.(),
           default: () => <>
-            <Tabs v-model:selected={refSelected.value} onUpdate:selected={onSelect}>
+          <div class={styles.wrapper}>
+            <Tabs v-model:selected={refSelected.value} onUpdate:selected={onSelect} class={styles.tabs}>
               <Tab name="本月">
                 <props.component
                   startDate={timeList[0].start.format()}
@@ -89,6 +90,7 @@ export const TimeTabsLayout = defineComponent({
                   endDate={customTime.end} />
               </Tab>
             </Tabs>
+          </div>
             <Popup round show={refPopupVisible.value}>
               <div class={styles.customTime}>
                 <header>

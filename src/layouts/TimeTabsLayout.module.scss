@@ -1,9 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 79px);
+}
+.tabs {
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
+}
 .customTime {
   background: var(--button-bg);
   width: 80vw;
   
   > header {
-    background: var(--main);
     padding: 12px 16px;
     font-weight: 800;
     font-size: 24px;
@@ -13,7 +22,6 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding-top: 8px;
     > button {
       width:  25.44vw;
       border-radius: var(--button-radius);

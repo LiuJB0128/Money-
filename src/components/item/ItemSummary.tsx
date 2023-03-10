@@ -48,6 +48,245 @@ export const ItemSummary = defineComponent({
               </div>
             </div>
           </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class={styles.sign}>
+              <span>X</span>
+            </div>
+            <div class={styles.text}>
+              <div class={styles.tagAndAmount}>
+                <span class={styles.tag}>旅行</span>
+                <span class={styles.amount}>￥1234</span>
+              </div>
+              <div class={styles.time}>
+                2000-01-01 12:39
+              </div>
+            </div>
+          </li>
+          
         </ol>
         <div class={styles.more}>向下滑动加载更多</div>
         <button />
