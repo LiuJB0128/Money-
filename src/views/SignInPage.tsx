@@ -7,9 +7,11 @@ import styles from './SignInPage.module.scss';
 import { Button } from 'vant';
 import axios from 'axios';
 import { http } from '../shared/Http';
+import { useBool } from '../hooks/useBool';
 export const SignInPage = defineComponent({
   setup: (props, context) => {
     const refValidationCode = ref<any>()
+    const { ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
     const formData = reactive({
       email: 'liujianbing128@163.com',
       code: ''
@@ -36,13 +38,12 @@ export const SignInPage = defineComponent({
       throw error
     }
     const onClickSendValidationCode = async () => {
+      disabled()
       const response = await http
         .post('/validation_codes', { email: formData.email })
         .catch(onError)
-        .then(()=>{
-          // 成功
-          refValidationCode.value.startCount()
-        }) 
+        .finally(enable)
+      refValidationCode.value.startCount()
     }
     return () => (
       <MainLayout>{
@@ -62,6 +63,7 @@ export const SignInPage = defineComponent({
                 <FormItem ref={refValidationCode} label="验证码" type="validationCode"
                   onClick={onClickSendValidationCode}
                   countFrom={60}
+                  disabled={refDisabled.value}
                   placeholder='请输入验证码'
                   v-model={formData.code} error={errors.code?.[0]} />
                 <FormItem style={{ paddingTop: '24px' }}>
