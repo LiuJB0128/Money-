@@ -2,7 +2,7 @@ import { defineComponent, reactive, ref } from 'vue';
 import { MainLayout } from '../layouts/MainLayout';
 import { Form, FormItem } from '../shared/Form';
 import SvgIcon from '../components/svgIcon/index.vue';
-import { validate } from '../shared/validate';
+import { hasError, validate } from '../shared/validate';
 import styles from './SignInPage.module.scss';
 import { Button } from 'vant';
 import axios from 'axios';
@@ -20,8 +20,7 @@ export const SignInPage = defineComponent({
       email: [],
       code: []
     })
-    const onSubmit = (e: Event) => {
-      e.preventDefault()
+    const onSubmit = async (e: Event) => {
       Object.assign(errors, {
         email: [], code: []
       })
@@ -30,6 +29,9 @@ export const SignInPage = defineComponent({
         { key: 'email', type: 'pattern', regex: /.+@.+/, message: '请输入正确的邮箱地址' },
         { key: 'code', type: 'required', message: '必填' },
       ]))
+      if(!hasError(errors)){
+        const response = await http.post('/session', formData)
+      }
     }
     const onError = (error: any) => {
       if (error.response.status === 422) {

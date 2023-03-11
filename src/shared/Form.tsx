@@ -77,6 +77,8 @@ export const FormItem = defineComponent({
         case 'validationCode':
           return <>
             <input class={[styles.formItem, styles.input, styles.validationCodeInput]}
+            value={props.modelValue}
+            onInput={(e: any) => context.emit('update:modelValue', e.target.value)}
               placeholder={props.placeholder} />
             <Button disabled={isCounting.value || props.disabled} onClick={props.onClick} class={[styles.formItem, styles.button, styles.validationCodeButton]}>
               {isCounting.value ? `${count.value}s` : '发送验证码'}
