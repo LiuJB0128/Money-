@@ -8,10 +8,14 @@ import { Button } from 'vant';
 import axios from 'axios';
 import { http } from '../shared/Http';
 import { useBool } from '../hooks/useBool';
+import { history } from '../shared/history';
+import { useRouter } from 'vue-router';
+
 export const SignInPage = defineComponent({
   setup: (props, context) => {
     const refValidationCode = ref<any>()
     const { ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
+    const router = useRouter()
     const formData = reactive({
       email: 'liujianbing128@163.com',
       code: ''
@@ -29,8 +33,10 @@ export const SignInPage = defineComponent({
         { key: 'email', type: 'pattern', regex: /.+@.+/, message: '请输入正确的邮箱地址' },
         { key: 'code', type: 'required', message: '必填' },
       ]))
-      if(!hasError(errors)){
-        const response = await http.post('/session', formData)
+      if (!hasError(errors)) {
+        const response = await http.post<{ jwt: string }>('/session', formData)
+        localStorage.setItem('jwt', response.data.jwt)
+        router.push('/items')
       }
     }
     const onError = (error: any) => {
