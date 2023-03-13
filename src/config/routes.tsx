@@ -14,6 +14,9 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   { path: '/', redirect: '/welcome' },
   { path: '/welcome',
     component: Welcome, 
+    beforeEnter: (to, from, next) => {
+      localStorage.getItem('skipWelcomePage') === 'yes' ? next('/items') : next()
+    },
     children: [
       { path: '', component: WelcomeMain }
     ]

@@ -1,6 +1,6 @@
-import { RouterLink } from 'vue-router';
 import { WelcomeLayout } from './WelcomeLayout';
 import SvgIcon from '../svgIcon/index.vue';
+import { SkipWelcomePage } from '../../shared/SkipWelcomePage';
 
 export const WelcomeMain = () => (
   <WelcomeLayout>
@@ -14,7 +14,7 @@ export const WelcomeMain = () => (
       iconForth: () => <SvgIcon name="storage"></SvgIcon>,
       titleForth: () => <h2>云备份<br/>再也不怕数据丢失</h2>,
       buttons: () => <>
-        <RouterLink to={'/items'}>开始记账</RouterLink>
+        <SkipWelcomePage/>
       </>
     }}
   </WelcomeLayout>
