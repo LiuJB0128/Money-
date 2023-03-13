@@ -1,11 +1,12 @@
 .wrapper {
   display: grid;
-  //grid-template-rows: 100%;
+  margin: 16px 16px 0;
   padding-bottom: var(--welcome-nav-gap);
+  .my_swipt {
+    border-radius: 8px;
+  }
   .card {
     background: var(--welcome-card-background);
-    border-radius: 8px;
-    margin: 16px 16px 0;
     display: grid;
     justify-content: center;
     align-content: center;
