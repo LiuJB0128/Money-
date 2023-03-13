@@ -13,8 +13,7 @@ import { Welcome } from "../views/Welcome";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
   { path: '/', redirect: '/welcome' },
-  { path: '/welcome',
-    component: Welcome, 
+  { path: '/welcome', component: Welcome, 
     beforeEnter: (to, from, next) => {
       localStorage.getItem('skipWelcomePage') === 'yes' ? next('/items') : next()
     },
@@ -35,17 +34,25 @@ export const routes: Readonly<RouteRecordRaw[]> = [
       { path: 'create', component: ItemCreate }
     ]
   },
-  {
-    path: '/tags', component: TagPage,
+  { path: '/tags', component: TagPage,
+    beforeEnter: async (to, from, next) => {
+      await http.get('/me').catch(() => {
+        next('/sign_in?return_to=' + to.path)
+      })
+      next()
+    },
     children: [
       { path: 'create', component: TagCreate },
       { path: ':id/edit', component: TagEdit }
     ]
   },
-  {
-    path: '/sign_in', component: SignInPage
-  },
-  {
-    path: '/statistics', component: StatisticsPage
+  { path: '/sign_in', component: SignInPage },
+  { path: '/statistics', component: StatisticsPage,
+    beforeEnter: async (to, from, next) => {
+      await http.get('/me').catch(() => {
+        next('/sign_in?return_to=' + to.path)
+      })
+      next()
+    },
   }
 ]
