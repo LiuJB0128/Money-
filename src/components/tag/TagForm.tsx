@@ -25,7 +25,7 @@ export const TagForm = defineComponent({
       Object.assign(errors, validate(formData, rules))
     }
     return () => (
-      <Form onSubmit={onSubmit}>
+      <Form>
         <FormItem label='标签名'
           type="text"
           v-model={formData.name}

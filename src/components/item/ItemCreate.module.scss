@@ -31,11 +31,15 @@
     max-height: 80px;
     width: 12vw;
     height: 12vw;
-    background: white;
-    border-radius: 50%;
+    background: var(--items-sign-bg);
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
+    &_add {
+      border: none;
+      background: var(--button-bg);
+    }
     > svg {
       max-width: 80px;
       max-height: 80px;
