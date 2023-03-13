@@ -3,10 +3,7 @@ import { ItemCreate } from "../components/item/ItemCreate";
 import { ItemList } from "../components/item/ItemList";
 import { TagCreate } from "../components/tag/TagCreate";
 import { TagEdit } from "../components/tag/TagEdit";
-import { First } from "../components/welcome/First";
-import { Forth } from "../components/welcome/Forth";
-import { Second } from "../components/welcome/Second";
-import { Third } from "../components/welcome/Third";
+import { WelcomeMain } from "../components/welcome/WelcomeMain";
 import { ItemPage } from "../views/ItemPage";
 import { SignInPage } from "../views/SignInPage";
 import { StatisticsPage } from "../views/StatisticsPage";
@@ -18,11 +15,7 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   { path: '/welcome',
     component: Welcome, 
     children: [
-      { path: '', redirect: '/welcome/1' },
-      { path: '1', component: First },
-      { path: '2', component: Second },
-      { path: '3', component: Third },
-      { path: '4', component: Forth }
+      { path: '', component: WelcomeMain }
     ]
   },
   { path: '/items',

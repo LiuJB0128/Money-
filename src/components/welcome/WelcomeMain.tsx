@@ -2,7 +2,7 @@ import { RouterLink } from 'vue-router';
 import { WelcomeLayout } from './WelcomeLayout';
 import SvgIcon from '../svgIcon/index.vue';
 
-export const First = () => (
+export const WelcomeMain = () => (
   <WelcomeLayout>
     {{
       iconFirst: () => <SvgIcon name="phone"></SvgIcon>,
@@ -14,15 +14,13 @@ export const First = () => (
       iconForth: () => <SvgIcon name="storage"></SvgIcon>,
       titleForth: () => <h2>云备份<br/>再也不怕数据丢失</h2>,
       buttons: () => <>
-        <div/>
-        <RouterLink to={'/welcome/2'}>下一页</RouterLink>
-        <RouterLink to={'/'}>跳过</RouterLink>
+        <RouterLink to={'/items'}>开始记账</RouterLink>
       </>
     }}
   </WelcomeLayout>
 )
 
-First.displayName = 'First'
+WelcomeMain.displayName = 'WelcomeMain'
 
 //export const First = () => {
 //  const slots = {

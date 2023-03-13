@@ -26,7 +26,6 @@ export const WelcomeLayout: FunctionalComponent = (props, context) => {
           {titleForth?.()}
         </SwipeItem>
       </Swipe>
-      
       <div class={ styles.actions }>
         {buttons?.()}
       </div>
