@@ -7,10 +7,15 @@ export const Tags = defineComponent({
     kind: {
       type: String as PropType<string>,
       required: true
-    }
+    },
+    selected: Number
   },
+  emits: ['update:selected'],
   setup: (props, context) => {
     const tags = ref<Tag[]>([])
+    const onSelect = (tag: Tag) => {
+      context.emit('update:selected', tag.id)
+    }
     onMounted(async () => {
       const response = await http.get<{ resources: Tag[] }>('/tags', {
         kind: props.kind,
@@ -29,7 +34,7 @@ export const Tags = defineComponent({
           </div>
         </div>
         {tags.value.map(tag =>
-          <div class={[styles.tag, styles.selected]}>
+          <div class={[styles.tag, props.selected === tag.id ? styles.selected : '']} onClick={() => onSelect(tag)}>
             <div class={styles.sign}>
               {tag.sign}
             </div>

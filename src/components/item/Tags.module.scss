@@ -34,7 +34,7 @@
   }
   &.selected {
     .sign {
-      border: var(--tabs-border);
+      border: 1px solid var(--tabs-border);
     }
   }
 }

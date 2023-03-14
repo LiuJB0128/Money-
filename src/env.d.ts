@@ -7,6 +7,11 @@ declare module '*.vue' {
   export default component
 }
 
+declare module '*.scss' {
+  const content: Record<string, any> = {}
+  export default content
+}
+
 type JSONValue = null | boolean | string | number | JSONValue[] | Record<string, JSONValue>
 
 type Tag = {
@@ -24,4 +29,21 @@ type Resources<T = any> = {
     per_page: number,
     count: number
   }
+}
+
+type Item = {
+  id: number
+  user_id: number
+  amount: number
+  tags_id: number[]
+  happen_at: string
+  kind: expenses | income
+}
+
+type Resource<T> = {
+  resource: T
+}
+
+type ResourceError = {
+  errors: Record<string, string[]>
 }
