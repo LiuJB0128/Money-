@@ -6,6 +6,7 @@ import styles from './Tag.module.scss'
 import 'vant/es/button/style'
 import { Rules, validate } from '../../shared/validate';
 import { TagForm } from './TagForm';
+import { BackIcon } from '../../shared/BackIcon';
 
 export const TagEdit = defineComponent({
   setup: (props, context) => {
@@ -29,7 +30,7 @@ export const TagEdit = defineComponent({
     return () => (
       <MainLayout>{{
         title: () => '编辑标签',
-        icon: () => <SvgIcon name="left"></SvgIcon>,
+        icon: () => <BackIcon/>,
         default: () => <>
           <TagForm />
           <div class={styles.actions}>

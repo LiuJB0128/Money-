@@ -10,6 +10,7 @@ import { http } from '../../shared/Http';
 import { useRouter } from 'vue-router';
 import { AxiosError } from 'axios';
 import 'vant/es/dialog/style';
+import { BackIcon } from '../../shared/BackIcon';
 
 export const ItemCreate = defineComponent({
   props: {
@@ -44,7 +45,7 @@ export const ItemCreate = defineComponent({
       <div>
         <MainLayout>
           {{
-            icon: () => <SvgIcon name="left"></SvgIcon>,
+            icon: () => <BackIcon/>,
             title: () => '记一笔',
             default: () => <>
               <div class={styles.wrapper}>

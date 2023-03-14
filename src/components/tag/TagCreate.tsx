@@ -3,6 +3,7 @@ import { MainLayout } from '../../layouts/MainLayout';
 import SvgIcon from '../svgIcon/index.vue';
 import { Rules, validate } from '../../shared/validate';
 import { TagForm } from './TagForm';
+import { BackIcon } from '../../shared/BackIcon';
 
 export const TagCreate = defineComponent({
   setup: (props, context) => {
@@ -26,7 +27,7 @@ export const TagCreate = defineComponent({
     return () => (
       <MainLayout>{{
         title: () => '新建标签',
-        icon: () => <SvgIcon name="left"></SvgIcon>,
+        icon: () => <BackIcon/>,
         default: () => (
           <TagForm />
         )
