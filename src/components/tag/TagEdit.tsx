@@ -1,40 +1,41 @@
-import { Button } from 'vant';
-import { defineComponent, reactive } from 'vue';
+import { Button, Dialog } from 'vant';
+import { defineComponent } from 'vue';
 import { MainLayout } from '../../layouts/MainLayout';
-import SvgIcon from '../svgIcon/index.vue';
 import styles from './Tag.module.scss'
 import 'vant/es/button/style'
-import { Rules, validate } from '../../shared/validate';
 import { TagForm } from './TagForm';
 import { BackIcon } from '../../shared/BackIcon';
+import { useRoute, useRouter } from 'vue-router';
+import { http } from '../../shared/Http';
+import 'vant/es/dialog/style';
 
 export const TagEdit = defineComponent({
   setup: (props, context) => {
-    const formData = reactive({
-      name: '',
-      sign: '',
-    })
-    const errors = reactive<{ [k in keyof typeof formData]?: string[] }>({})
-    const onSubmit = (e: Event) => {
-      const rules: Rules<typeof formData> = [
-        { key: 'name', type: 'required', message: '必填' },
-        { key: 'name', type: 'pattern', regex: /^.{1,4}$/, message: '只能填 1 到 4 个字符' },
-        { key: 'sign', type: 'required', message: '必填' },
-      ]
-      Object.assign(errors, {
-        name: undefined,
-        sign: undefined
+    const route = useRoute()
+    const numberId = parseInt(route.params.id!.toString())
+    if(Number.isNaN(numberId)){
+      return ()=> <div>id 不存在</div>
+    }
+    const router = useRouter()
+    const onError = ()=>{
+      Dialog.alert({ title:'提示',message:'删除失败' })
+    }
+    const onDelete = async (options?: {withItems?: boolean})=>{
+      await Dialog.confirm({
+        title:'确认',
+        message:'你真的要删除吗？'
       })
-      Object.assign(errors, validate(formData, rules))
+      await http.delete(`/tags/${numberId}`).catch(onError)
+      router.back()
     }
     return () => (
       <MainLayout>{{
         title: () => '编辑标签',
         icon: () => <BackIcon/>,
         default: () => <>
-          <TagForm />
+          <TagForm id={numberId}/>
           <div class={styles.actions}>
-            <Button type="danger" class={styles.removeTags}>删除标签</Button>
+            <Button type="danger" class={styles.removeTags} onClick={()=>onDelete()}>删除标签</Button>
           </div>
         </> 
       }}</MainLayout>
