@@ -1,13 +1,11 @@
 import { defineComponent, PropType, reactive, ref } from 'vue';
 import styles from './TimeTabsLayout.module.scss';
-import SvgIcon from '../components/svgIcon/index.vue'
 import { Button, Popup } from 'vant';
 import 'vant/es/button/style';
 import 'vant/es/popup/style';
 import { Time } from '../shared/time';
 import { MainLayout } from './MainLayout';
 import { Tab, Tabs } from '../shared/Tabs';
-import { ItemSummary } from '../components/item/ItemSummary';
 import { Form, FormItem } from '../shared/Form';
 
 const demo = defineComponent({

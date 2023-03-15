@@ -1,7 +1,6 @@
-import { defineComponent, PropType, reactive, ref } from 'vue';
+import { defineComponent, PropType, reactive } from 'vue';
 import { Tabs, Tab } from '../../shared/Tabs';
 import styles from './ItemCreate.module.scss';
-import SvgIcon from '../svgIcon/index.vue'
 import { MainLayout } from '../../layouts/MainLayout';
 import { InputPad } from './InputPad';
 import { Tags } from './Tags';
