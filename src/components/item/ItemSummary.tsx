@@ -66,11 +66,11 @@ export const ItemSummary = defineComponent({
               {items.value.map((item) => (
                 <li>
                   <div class={styles.sign}>
-                    <span>{item.tags_id[0]}</span>
+                    <span>{item.tags![0].sign}</span>
                   </div>
                   <div class={styles.text}>
                     <div class={styles.tagAndAmount}>
-                      <span class={styles.tag}>{item.tags_id[0]}</span>
+                      <span class={styles.tag}>{item.tags![0].name}</span>
                       <span class={styles.amount}>￥<Money value={item.amount}/></span>
                     </div>
                     <div class={styles.time}><Datetime value={item.happen_at}/></div>
