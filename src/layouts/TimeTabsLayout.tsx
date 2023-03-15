@@ -28,6 +28,10 @@ export const TimeTabsLayout = defineComponent({
     rerenderOnSwitchTab: {
       type: Boolean,
       default: false
+    },
+    hideThisYear: {
+      type: Boolean,
+      default: false
     }
   },
   setup: (props, context) => {
@@ -49,11 +53,29 @@ export const TimeTabsLayout = defineComponent({
       }
     ]
     return () => (
-      <MainLayout>{
-        {
+      <MainLayout>
+        {{
           title: () => slots.title?.(),
           icon: () => slots.icon?.(),
           default: () => <>
+          {props.hideThisYear ? (
+            <div class={styles.wrapper}>
+              <Tabs v-model:selected={refSelected.value}
+                class={styles.tabs}
+                rerenderOnSelect={props.rerenderOnSwitchTab}>
+                <Tab name="本月">
+                  <props.component
+                    startDate={timeList[0].start.format()}
+                    endDate={timeList[0].end.format()} />
+                </Tab>
+                <Tab name="上月">
+                  <props.component
+                    startDate={timeList[1].start.format()}
+                    endDate={timeList[1].end.format()} />
+                </Tab>
+              </Tabs>
+            </div>
+          ) : (
             <div class={styles.wrapper}>
               <Tabs v-model:selected={refSelected.value}
                 class={styles.tabs}
@@ -75,9 +97,10 @@ export const TimeTabsLayout = defineComponent({
                 </Tab>
               </Tabs>
             </div>
+          )}
           </>
-        }
-      }</MainLayout>
+        }}
+      </MainLayout>
     )
   }
 })

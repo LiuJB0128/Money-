@@ -6,7 +6,7 @@ import { Tabbar } from '../shared/Tabbar';
 export const StatisticsPage = defineComponent({
   setup: (props, context) => {
     return () => <>
-      <TimeTabsLayout rerenderOnSwitchTab={true} component={Charts}>
+      <TimeTabsLayout rerenderOnSwitchTab={true} component={Charts} hideThisYear={true}>
         {{
           title: () => '统计页面',
           icon: () => <BackIcon/>
