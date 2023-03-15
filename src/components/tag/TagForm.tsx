@@ -2,31 +2,45 @@ import { Button } from 'vant';
 import { defineComponent, reactive } from 'vue';
 import styles from './Tag.module.scss'
 import 'vant/es/button/style'
-import { Rules, validate } from '../../shared/validate';
+import { hasError, Rules, validate } from '../../shared/validate';
 import { Form, FormItem } from '../../shared/Form';
+import { useRoute, useRouter } from 'vue-router';
+import { http } from '../../shared/Http';
+import { onFormError } from '../../shared/onFormError';
 
 export const TagForm = defineComponent({
    setup: (props, context) => {
+    const route = useRoute();
+    const router = useRouter()
     const formData = reactive({
       name: '',
       sign: '',
+      kind: route.query.kind!.toString(),
     })
     const errors = reactive<{ [k in keyof typeof formData]?: string[] }>({})
-    const onSubmit = (e: Event) => {
+    const onSubmit = async (e: Event) => {
       const rules: Rules<typeof formData> = [
         { key: 'name', type: 'required', message: '必填' },
         { key: 'name', type: 'pattern', regex: /^.{1,4}$/, message: '只能填 1 到 4 个字符' },
         { key: 'sign', type: 'required', message: '必填' },
       ]
       Object.assign(errors, {
-        name: undefined,
-        sign: undefined
+        name: [],
+        sign: []
       })
       Object.assign(errors, validate(formData, rules))
+      if(!hasError(errors)){
+        await http.post('/tags', formData, {
+          params: {_mock: 'tagCreate'},
+        }).catch((error)=>
+          onFormError(error, (data)=> Object.assign(errors, data.errors))
+        )
+        router.back()
+      }
     }
     return () => (
       <Form>
-        <FormItem label='标签名'
+        <FormItem label='标签名（最多 4 个字符）'
           type="text"
           v-model={formData.name}
           error={errors['name']?.[0]} />
