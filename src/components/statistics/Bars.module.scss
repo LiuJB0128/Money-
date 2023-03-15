@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--text-muted);
+  padding-bottom: 16px;
   .sign {
     flex-grow: 0;
     flex-shrink: 0;
@@ -14,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--tag-bg);
+    background: var(--items-sign-bg);
     border-radius: 50%;
   }
   .bar_wrapper {
@@ -40,7 +42,7 @@
       top: 0;
       left: 0;
       height: 100%;
-      width: 42px;
+      width: 0;
     }
   }
   &:nth-child(1) {
