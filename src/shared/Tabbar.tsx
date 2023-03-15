@@ -23,6 +23,10 @@ export const Tabbar = defineComponent({
           <SvgIcon name='statistics' class={styles.tabbarItem_sign}/>
           <span class={styles.tabbarItem_title}>统计</span>
         </RouterLink>
+        <RouterLink to='/user' class={styles.tabbarItem}>
+          <SvgIcon name='user' class={styles.tabbarItem_sign}/>
+          <span class={styles.tabbarItem_title}>用户</span>
+        </RouterLink>
       </div>
     )
   }

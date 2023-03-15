@@ -9,6 +9,7 @@ import { ItemPage } from "../views/ItemPage";
 import { SignInPage } from "../views/SignInPage";
 import { StatisticsPage } from "../views/StatisticsPage";
 import { TagPage } from "../views/TagPage";
+import { UserPage } from "../views/UserPage";
 import { Welcome } from "../views/Welcome";
 
 export const routes: Readonly<RouteRecordRaw[]> = [
@@ -48,6 +49,14 @@ export const routes: Readonly<RouteRecordRaw[]> = [
   },
   { path: '/sign_in', component: SignInPage },
   { path: '/statistics', component: StatisticsPage,
+    beforeEnter: async (to, from, next) => {
+      await http.get('/me').catch(() => {
+        next('/sign_in?return_to=' + to.path)
+      })
+      next()
+    },
+  },
+  { path: '/user', component: UserPage,
     beforeEnter: async (to, from, next) => {
       await http.get('/me').catch(() => {
         next('/sign_in?return_to=' + to.path)
