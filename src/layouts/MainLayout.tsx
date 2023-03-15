@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue';
+import { RouterLink } from 'vue-router';
 import { Navbar } from '../shared/Navbar';
 import styles from './MainLayout.module.scss'
+import SvgIcon from '../components/svgIcon/index.vue';
 export const MainLayout = defineComponent({
   setup: (props, context) => {
     const { slots } = context
@@ -13,6 +15,7 @@ export const MainLayout = defineComponent({
           }}
         </Navbar>
         { slots.default?.() }
+        
       </div>
     )
   }

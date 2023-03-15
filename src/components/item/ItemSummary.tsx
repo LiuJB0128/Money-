@@ -289,7 +289,6 @@ export const ItemSummary = defineComponent({
           
         </ol>
         <div class={styles.more}>向下滑动加载更多</div>
-        <button />
       </div>
     )
   }
