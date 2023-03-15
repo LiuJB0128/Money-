@@ -37,10 +37,10 @@ export const InputPad = defineComponent({
     const appendText = (n: number | string) => {
       const nString = n.toString()
       const dotIndex = refNumber.value.indexOf('.')
-      if (refNumber.value.length >= 12) {
+      if (refNumber.value.length >= 13) {
         return
       }
-      if (dotIndex >= 0 && refNumber.value.length - dotIndex > 3) {
+      if (dotIndex >= 0 && refNumber.value.length - dotIndex > 2) {
         return
       }
       if (nString === '.') {
