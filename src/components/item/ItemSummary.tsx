@@ -1,5 +1,7 @@
 import { defineComponent, onMounted, PropType, ref } from 'vue';
+import { Datetime } from '../../shared/DateTime';
 import { http } from '../../shared/Http';
+import { Money } from '../../shared/Money';
 import styles from './ItemSummary.module.scss';
 export const ItemSummary = defineComponent({
   props: {
@@ -56,9 +58,9 @@ export const ItemSummary = defineComponent({
                   <div class={styles.text}>
                     <div class={styles.tagAndAmount}>
                       <span class={styles.tag}>{item.tags_id[0]}</span>
-                      <span class={styles.amount}>￥<>{item.amount}</></span>
+                      <span class={styles.amount}>￥<Money value={item.amount}/></span>
                     </div>
-                    <div class={styles.time}>{item.happen_at}</div>
+                    <div class={styles.time}><Datetime value={item.happen_at}/></div>
                   </div>
                 </li>
               ))}
