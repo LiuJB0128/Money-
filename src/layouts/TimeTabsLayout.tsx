@@ -63,12 +63,12 @@ export const TimeTabsLayout = defineComponent({
               <Tabs v-model:selected={refSelected.value}
                 class={styles.tabs}
                 rerenderOnSelect={props.rerenderOnSwitchTab}>
-                <Tab name="本月">
+                <Tab value="本月" name="本月">
                   <props.component
                     startDate={timeList[0].start.format()}
                     endDate={timeList[0].end.format()} />
                 </Tab>
-                <Tab name="上月">
+                <Tab value="上月" name="上月">
                   <props.component
                     startDate={timeList[1].start.format()}
                     endDate={timeList[1].end.format()} />
@@ -80,17 +80,17 @@ export const TimeTabsLayout = defineComponent({
               <Tabs v-model:selected={refSelected.value}
                 class={styles.tabs}
                 rerenderOnSelect={props.rerenderOnSwitchTab}>
-                <Tab name="本月">
+                <Tab value="本月" name="本月">
                   <props.component
                     startDate={timeList[0].start.format()}
                     endDate={timeList[0].end.format()} />
                 </Tab>
-                <Tab name="上月">
+                <Tab value="上月" name="上月">
                   <props.component
                     startDate={timeList[1].start.format()}
                     endDate={timeList[1].end.format()} />
                 </Tab>
-                <Tab name="今年">
+                <Tab value="今年" name="今年">
                   <props.component
                     startDate={timeList[2].start.format()}
                     endDate={timeList[2].end.format()} />
