@@ -45,7 +45,14 @@
         color: var(--list-tag-text);
       }
       .amount{
-        color: var(--list-amount-text);
+        font-weight: 700;
+        font-size: 20px;
+        &.expenses {
+          color: #ff585d;
+        }
+        &.income {
+          color: #09d29f;
+        }
       }
     }
     .time{

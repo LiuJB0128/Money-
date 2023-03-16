@@ -77,7 +77,7 @@ export const ItemSummary = defineComponent({
                   <div class={styles.text}>
                     <div class={styles.tagAndAmount}>
                       <span class={styles.tag}>{item.tags![0].name}</span>
-                      <span class={styles.amount}>￥<Money value={item.amount}/></span>
+                      <span class={[item.kind === 'expenses' ? [styles.amount, styles.expenses] : [styles.amount, styles.income]]}>{item.kind === 'expenses' ? '-' : '+'}<Money value={item.amount}/></span>
                     </div>
                     <div class={styles.time}><Datetime value={item.happen_at}/></div>
                   </div>
