@@ -9,7 +9,7 @@ import { http } from '../../shared/Http';
 import { useRouter } from 'vue-router';
 import { AxiosError } from 'axios';
 import 'vant/es/dialog/style';
-import { BackIcon } from '../../shared/BackIcon';
+import SvgIcon from '../svgIcon/index.vue';
 
 export const ItemCreate = defineComponent({
   props: {
@@ -40,11 +40,14 @@ export const ItemCreate = defineComponent({
       ).catch(onError)
       router.push("/items")
     }
+    const onClick = () => {
+      router.push("/items")
+    }
     return () => (
       <div>
         <MainLayout>
           {{
-            icon: () => <BackIcon/>,
+            icon: () => <SvgIcon name='left' onClick={onClick}/>,
             title: () => '记一笔',
             default: () => <>
               <div class={styles.wrapper}>
