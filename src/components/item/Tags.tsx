@@ -20,7 +20,9 @@ export const Tags = defineComponent({
     onMounted(async () => {
       const response = await http.get<{ resources: Tag[] }>('/tags', {
         kind: props.kind,
-        _mock: 'tagIndex'
+      }, {
+        _mock: 'tagIndex',
+        _autoLoading: true
       })
       tags.value = response.data.resources
     })

@@ -7,7 +7,7 @@ import { Button, Dialog } from 'vant';
 import 'vant/es/dialog/style';
 import 'vant/es/button/style';
 import { http } from '../shared/Http';
-import { RouterLink, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 export const UserPage = defineComponent({
   props: {
     name: {
@@ -18,7 +18,9 @@ export const UserPage = defineComponent({
     const router = useRouter()
     const me = ref<User>({id: 1, email: '...'})
     onMounted(async () => {
-      const response = http.get<Resource<User>>('/me')
+      const response = http.get<Resource<User>>('/me', {}, {
+        _autoLoading: true
+      })
       me.value =  (await response).data.resource
     })
     const onSignOut = async () => {
