@@ -1,11 +1,9 @@
-import { Button, DatetimePicker, Popup } from 'vant';
-import 'vant/es/datetime-picker/style';
-import 'vant/es/popup/style';
+import { Button } from 'vant';
+import 'vant/es/button/style';
 import { computed, defineComponent, PropType, ref } from 'vue';
 import { EmojiSelect } from './EmojiSelect';
 import styles from './Form.module.scss';
 import { getFriendlyError } from './getFriendlyError';
-import { Time } from './time';
 export const Form = defineComponent({
   props: {
     onSubmit: {
@@ -91,21 +89,6 @@ export const FormItem = defineComponent({
               <option value={option.value}>{option.text}</option>
             )}
           </select>
-        case 'date':
-          return <>
-            <input readonly={true} value={props.modelValue}
-              placeholder={props.placeholder}
-              onClick={() => { refDateVisible.value = true }}
-              class={[styles.formItem, styles.input]} />
-            <Popup position='bottom' v-model:show={refDateVisible.value} teleport="body">
-              <DatetimePicker value={props.modelValue} type="date" title="选择日期"
-                onConfirm={(date: Date) => {
-                context.emit('update:modelValue', new Time(date).format())
-                refDateVisible.value = false
-                }}
-                onCancel={() => refDateVisible.value = false} />
-            </Popup>
-          </>
         case undefined:
           return context.slots.default?.()
       }

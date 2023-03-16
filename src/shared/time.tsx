@@ -36,7 +36,7 @@ export class Time {
     return new Time(new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0, 0, 0, 0));
   }
   lastDayOfYear() {
-    return new Time(new Date(this.date.getFullYear() + 1, 0, 0, 0, 0, 0));
+    return new Time(new Date(this.date.getFullYear() + 1, 0, 0, 23, 59, 0));
   }
   getRaw() {
     return this.date

@@ -8,6 +8,7 @@ export const Bars = defineComponent({
     }
   },
   setup: (props, context) => {
+    const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
     return () => (
       <div class={styles.wrapper}>
          {(props.data && props.data.length > 0) ?
@@ -23,7 +24,7 @@ export const Bars = defineComponent({
                   <span> ￥<Money value={amount}/> </span>
                 </div>
                 <div class={styles.bar}>
-                  <div class={styles.bar_inner} style={{width: `${percent}%`}}></div>
+                  <div class={styles.bar_inner} style={{width: `${percent}%`, background: randomHex()}}></div>
                 </div>
               </div>
             </div>

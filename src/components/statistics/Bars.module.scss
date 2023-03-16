@@ -46,19 +46,4 @@
       transition: width 500ms;
     }
   }
-  &:nth-child(1) {
-    .bar_inner {
-      background: #eba953;
-    }
-  }
-  &:nth-child(2) {
-    .bar_inner {
-      background: #53a867;
-    }
-  }
-  &:nth-child(3) {
-    .bar_inner {
-      background: #91cc75;
-    }
-  }
 }
