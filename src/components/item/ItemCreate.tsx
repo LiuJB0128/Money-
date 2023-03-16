@@ -31,7 +31,7 @@ export const ItemCreate = defineComponent({
       if (error.response?.status === 422) {
         Dialog.alert({
           title: '出错',
-          message: Object.values(error.response.data.errors).join('\n')
+          message: '请选择标签'
         })
       }
       throw error

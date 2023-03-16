@@ -3,6 +3,7 @@ import { Datetime } from '../../shared/DateTime';
 import { http } from '../../shared/Http';
 import { Money } from '../../shared/Money';
 import styles from './ItemSummary.module.scss';
+import SvgIcon from '../svgIcon/index.vue';
 export const ItemSummary = defineComponent({
   props: {
     startDate: {
@@ -23,9 +24,7 @@ export const ItemSummary = defineComponent({
         happen_after: props.startDate,
         happen_before: props.endDate,
         page: page.value + 1,
-      }, {
         _mock: 'itemIndex',
-        _autoLoading: true
       })
       const { resources, pager } = response.data
       items.value?.push(...resources)
@@ -42,7 +41,6 @@ export const ItemSummary = defineComponent({
         happen_after: props.startDate,
         happen_before: props.endDate,
         page: page.value + 1,
-      }, {
         _mock: 'itemIndexBalance',
       })
       Object.assign(itemsBalance, response.data)
@@ -88,7 +86,12 @@ export const ItemSummary = defineComponent({
               }
             </div>
           </>
-        ) : ( <div>记录为空</div> )}
+        ) : ( 
+          <div class={styles.error}>
+            <SvgIcon name="no" class={styles.errorIcon}/>
+            <p class={styles.errorTitle}>没有内容</p>
+          </div> 
+        )}
       </div>
     )
   }

@@ -23,7 +23,7 @@ export const TagEdit = defineComponent({
     const onDelete = async (options?: {withItems?: boolean})=>{
       await Dialog.confirm({
         title:'确认',
-        message:'你真的要删除吗？'
+        message:'删除标签对应的账单记录也会删除，确认删除吗？'
       })
       await http.delete(`/tags/${numberId}`).catch(onError)
       router.back()

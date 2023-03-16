@@ -58,3 +58,18 @@
   padding: 16px 0;
   text-align: center;
 }
+.error {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.errorIcon {
+  height: 100vw;
+}
+.errorTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
