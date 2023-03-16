@@ -16,28 +16,14 @@ const defaultOption = {
   series: [
     {
       type: 'pie',
-      radius: ['40%', '70%'],
-      avoidLabelOverlap: false,
-      itemStyle: {
-        borderRadius: 10,
-        borderColor: '#fff',
-        borderWidth: 2
-      },
-      label: {
-        show: false,
-        position: 'center'
-      },
+      radius: '70%',
       emphasis: {
-        label: {
-          show: true,
-          fontSize: 50,
-          fontWeight: 'bold'
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
-      },
-      labelLine: {
-        show: false
-      },
-      
+      }
     }
   ]
 }

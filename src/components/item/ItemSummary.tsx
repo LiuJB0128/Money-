@@ -1,9 +1,10 @@
-import { defineComponent, onMounted, PropType, reactive, ref } from 'vue';
+import { defineComponent, onMounted, PropType, reactive, ref, watch } from 'vue';
 import { Datetime } from '../../shared/DateTime';
 import { http } from '../../shared/Http';
 import { Money } from '../../shared/Money';
 import styles from './ItemSummary.module.scss';
 import SvgIcon from '../svgIcon/index.vue';
+import { useItemStore } from '../../stores/useItemStore';
 export const ItemSummary = defineComponent({
   props: {
     startDate: {
@@ -16,38 +17,42 @@ export const ItemSummary = defineComponent({
     }
   },
   setup: (props, context) => {
-    const items = ref<Item[]>([])
-    const hasMore = ref(false)
-    const page = ref(0)
-    const fetchItems = async () => {
-      const response = await http.get<Resources<Item>>('/items', {
-        happen_after: props.startDate,
-        happen_before: props.endDate,
-        page: page.value + 1,
-        _mock: 'itemIndex',
-      })
-      const { resources, pager } = response.data
-      items.value?.push(...resources)
-      hasMore.value = (pager.page - 1) * pager.per_page + resources.length < pager.count
-      page.value += 1
-    }
-    onMounted(fetchItems)
+    const itemStore = useItemStore(['items', props.startDate, props.endDate])
+    onMounted(() => itemStore.fetchItems(props.startDate, props.endDate))
+    watch(
+      () => [props.startDate, props.endDate],
+      () => {
+        itemStore.$reset()
+        itemStore.fetchItems(props.startDate, props.endDate)
+      }
+    )
     const itemsBalance = reactive({
       expenses: 0, income: 0, balance: 0
     })
-    onMounted(async ()=>{
+    const fetchItemsBalance = async ()=>{
       if(!props.startDate || !props.endDate){ return }
       const response = await http.get('/items/balance', {
         happen_after: props.startDate,
         happen_before: props.endDate,
-        page: page.value + 1,
         _mock: 'itemIndexBalance',
       })
       Object.assign(itemsBalance, response.data)
-    })
+    }
+    onMounted(fetchItemsBalance)
+    watch(
+      () => [props.startDate, props.endDate],
+      () => {
+        Object.assign(itemsBalance, {
+          expenses: 0,
+          income: 0,
+          balance: 0
+        })
+        fetchItemsBalance()
+      }
+    )
     return () => (
       <div class={styles.wrapper}>
-        {items.value ? (
+        {itemStore.items && itemStore.items.length ? (
           <>
             <ul class={styles.total}>
               <li>
@@ -64,7 +69,7 @@ export const ItemSummary = defineComponent({
               </li>
             </ul>
             <ol class={styles.list}>
-              {items.value.map((item) => (
+              {itemStore.items.map((item) => (
                 <li>
                   <div class={styles.sign}>
                     <span>{item.tags![0].sign}</span>
@@ -80,8 +85,8 @@ export const ItemSummary = defineComponent({
               ))}
             </ol>
             <div class={styles.more}>
-              {hasMore.value ?
-                <span onClick={fetchItems}>点击加载更多</span> :
+              {itemStore.hasMore ?
+                <span onClick={() => itemStore.fetchNextPage(props.startDate, props.endDate)}>点击加载更多</span> :
                 <span>没有更多</span>
               }
             </div>
