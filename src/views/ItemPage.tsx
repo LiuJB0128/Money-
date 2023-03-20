@@ -1,6 +1,5 @@
 import { defineComponent, PropType } from 'vue';
 import { RouterView } from 'vue-router';
-import styles from './ItemPage.module.scss';
 export const ItemPage = defineComponent({
   props: {
     name: {
