@@ -7,28 +7,55 @@ import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/',
-  plugins: [
-    vue(),
-    vueJsx({
-      transformOn: true, // 自动转换
-      mergeProps: true // 自动帮你把 class属性 / style属性 / onXXX属性 绑定到子组件的根元素上
-    }),
-    createSvgIconsPlugin({
-      // 指定需要缓存的图标文件夹
-      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-      // 指定symbolId格式
-      symbolId: 'icon-[name]',
-    }),
-    Components({
-      resolvers: [VantResolver()],
-    }),
-  ],
-  server: {
-    proxy: {
-      '/api/v1': {
-        target: 'http://121.196.236.94:3000/',
+export default defineConfig((command) => {
+  return {
+    define: command === 'build' ? {
+      DEBUG: false
+    } : {
+      DEBUG: true
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id: any) {
+            if (id.includes('echarts')) {
+              return 'echarts';
+            }
+            if (id.includes('mock') || id.includes('faker')) {
+              return 'mock';
+            }
+            if (id.includes('vant')) {
+              return 'vant';
+            }
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          }
+        }
+      }
+    },
+    base: '/',
+    plugins: [
+      vue(),
+      vueJsx({
+        transformOn: true, // 自动转换
+        mergeProps: true // 自动帮你把 class属性 / style属性 / onXXX属性 绑定到子组件的根元素上
+      }),
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        // 指定symbolId格式
+        symbolId: 'icon-[name]',
+      }),
+      Components({
+        resolvers: [VantResolver()],
+      }),
+    ],
+    server: {
+      proxy: {
+        '/api/v1': {
+          target: 'http://121.196.236.94:3000/',
+        }
       }
     }
   }
