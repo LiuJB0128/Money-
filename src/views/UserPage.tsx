@@ -53,3 +53,5 @@ export const UserPage = defineComponent({
     </>
   }
 })
+
+export default UserPage

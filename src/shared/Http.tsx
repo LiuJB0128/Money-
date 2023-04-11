@@ -34,7 +34,7 @@ export class Http {
 const mock = (response: AxiosResponse) => {
   if (true || location.hostname !== 'localhost'
     && location.hostname !== '127.0.0.1'
-    && location.hostname !== '192.168.3.57') { return false }
+    && location.hostname !== '192.168.0.108') { return false }
   switch (response.config?._mock) {
     case 'tagIndex':
       [response.status, response.data] = mockTagIndex(response.config)
@@ -66,7 +66,7 @@ const mock = (response: AxiosResponse) => {
 function isDev(){
   if (location.hostname !== 'localhost'
     && location.hostname !== '127.0.0.1'
-    && location.hostname !== '192.168.3.57') { return false }
+    && location.hostname !== '192.168.0.108') { return false }
   return true
 }
 
