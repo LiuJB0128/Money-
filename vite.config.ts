@@ -7,7 +7,7 @@ import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
-export default defineConfig((command) => {
+export default defineConfig(({command}) => {
   return {
     define: command === 'build' ? {
       DEBUG: false
